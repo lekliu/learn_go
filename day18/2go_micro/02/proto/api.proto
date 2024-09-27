@@ -1,0 +1,36 @@
+// protoc -I . --micro_out=. --go_out=. ./api.proto
+// 版本号
+syntax = "proto3";
+
+// Go package path for the generated code
+option go_package = "/;proto";
+
+// 指写包名
+package proto;
+
+// 定义结构体
+message CallRequest{
+  //定义用户名
+  string name = 1;
+}
+
+// 响应结构体
+message CallResponse{
+  string msg=2;
+}
+
+// service 定义方法
+service Example{
+  rpc Call(CallRequest) returns (CallResponse){}
+}
+
+
+// 定义结构体
+message EmptyRequest{}
+
+// 响应结构体
+message EmptyResponse{}
+
+service Foo{
+  rpc Bar(EmptyRequest) returns (EmptyResponse){}
+}

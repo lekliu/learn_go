@@ -7,7 +7,7 @@ import (
 	"net"
 )
 
-// socket_stick/server/main.go
+// socket_stick/server/server.go
 
 func process(conn net.Conn) {
 	defer conn.Close()

@@ -8,7 +8,7 @@ import (
 )
 
 // 黏包 client
-// socket_stick/client/main.go
+// socket_stick/client/server.go
 
 func main() {
 	conn, err := net.Dial("tcp", "127.0.0.1:30000")

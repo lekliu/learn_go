@@ -1,0 +1,25 @@
+// protoc -I . --micro_out=. --go_out=. ./hello.proto
+// 版本号
+syntax = "proto3";
+
+// Go package path for the generated code
+option go_package = "/;proto";
+
+// 指写包名
+package proto;
+
+// 定义结构体
+message InfoRequest{
+  //定义用户名
+  string username = 1;
+}
+
+// 响应结构体
+message InfoResponse{
+  string msg=2;
+}
+
+// service 定义方法
+service Hello{
+  rpc Info(InfoRequest) returns (InfoResponse){}
+}

@@ -1,0 +1,94 @@
+{{define "views/index.html"}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>关于_xxx个人博客-一个站在web前端设计之路的女技术员个人博客网站</title>
+    <meta name="keywords" content="个人博客,xxx个人博客,个人博客模板,xxx">
+    <meta name="description"
+          content="XXX个人博客,是一个站在web前端设计之路的女程序员个人网站,提供个人博客模板免费资源下载的">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <link href="/static/css/base.css" rel="stylesheet" >
+    <link href="/static/css/index.css" rel="stylesheet">
+    <link href="/static/css/m.css" rel="stylesheet">
+    <!--[if It IE 9]>
+    <script src="js/modernizr.js">
+    </script>
+    <![endif]-->
+    <script>
+        window. onload = function () {
+            var oH2 = document.getElementsByTagName("h2") [0];
+            var oUl = document.getElementsByTagName("ul") [0];
+            oH2.onclick = function () {
+                var style = oUl.style;
+                style.display = style.display == "block" ? "none" : "block";
+                oH2.className = style.display == "block" ? "open" : "";
+            }
+        }
+    </script>
+</head>
+<body>
+<header>
+    <div class="tophead">
+        <div class="logo"><a href="/">我的博客</a></div>
+        <nav class="topnav" id="topnav">
+            <ul>
+                <li><a href="/">网站首页</a></li>
+                <li><a href="/article/new/">投稿</a></li>
+                <li><a href="/leave/new/">留言</a></li>
+                <li><a href="/about/me/">关于我</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<article>
+    <div class="blogs">
+        {{range .article_list}}
+        <li>
+            <h3 class="blogtitle"><a href="/article/detail/?article_id={{.Id}}">{{.Title}}</a></h3>
+            <div class="bloginfo">
+                <p> {{.Summary}} </p>
+            </div>
+            <div class="autor">
+                <span class="1m"><a href="/category/?category_id={{ .Category.CategoryId}}" title="Css3|Html5"
+                                    target="_blank" class=""></a></span>
+                <span class="dtime">{{.CreateTime}}</span>
+                <span class="viewnum">浏览({{.ViewCount}}) </span>
+                <span class="viewnum">评论({{.CommentCount}}) </span>
+                <span class="readmore"><a href="/article/detail/?article_id={{.Id}}">阅读原文</a></span>
+            </div>
+        </li>
+        {{end}}
+    </div>
+<div class="sidebar">
+    <div class="about">
+        <div class="avatar"><img src="/static/images/avatar.jpg" alt=""></div>
+        <p class="abnama">XXX</p>
+        <p class="abposition">Web前端设计师、网页设计</p>
+        <div class="abtext">一个80后草根站长!一直潜心研究web前端技术，一边工作一边积累经验,分享一些个人博客模板。</div>
+    </div>
+    <div class="cloud">
+        <h2 class="hometitle">分类云</h2>
+        <ul>
+            {{range .category_list}}
+            <a href="/category/?category_id={{.CategoryId}}">{{.CategoryName}}</a>
+            {{end}}
+        </ul>
+    </div>
+    <div class="paihang">
+        <h2 class="hometitle">点击排行</h2>
+        <ul>
+            <1i><b><a href="/download/div/2015-04-10/746.html" target="_blank"> 【活动作品】柠檬绿免J白个人博客模板30...</a></b>
+            <p><i><img src="/static/images/t02.jpg"></i>展示的是首页html,博客页面布局格式简单,没有复杂的背景,色彩局部点缀,开
+            </p>
+        </ul>
+    </div>
+</div>
+</article>
+<footer><p>Design by <a href="/">xxx个人博客</a></p>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>
+{{end}}
