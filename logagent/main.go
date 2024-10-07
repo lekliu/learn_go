@@ -1,15 +1,16 @@
 package main
 
 import (
+	"fmt"
+	"sync"
+	"time"
+
 	"code.xxliu.com/lekliu/logagent/conf"
 	"code.xxliu.com/lekliu/logagent/etcd"
 	"code.xxliu.com/lekliu/logagent/kafka"
 	"code.xxliu.com/lekliu/logagent/taillog"
 	"code.xxliu.com/lekliu/logagent/utils"
-	"fmt"
 	"gopkg.in/ini.v1"
-	"sync"
-	"time"
 )
 
 var (
